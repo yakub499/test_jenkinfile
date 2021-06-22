@@ -1,22 +1,68 @@
 pipeline{
     agent any
     stages{
-        stage("Build"){
+        stage("A"){
             steps{
-                echo 'Building the code'
+                echo "========executing A========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
             }
         }
-        stage("Testing"){
+        stage("B")
+        {
             steps{
-                echo 'Tesing the code'
+                echo "========executing A========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
             }
         }
-        stage("Deploying"){
+        stage("C")
+        {
             steps{
-                echo 'Deploying the code'
+                echo "========executing A========"
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
             }
         }
 
-        
+
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
     }
 }
